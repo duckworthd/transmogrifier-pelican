@@ -1,0 +1,4 @@
+*.py[oc]
+.DS_Store
+env
+output
