@@ -1,10 +1,8 @@
----
-comments: true
-layout: post
-title: Why does \(L_1\) regularization produce sparse solutions?
-subtitle: wut.
-
----
+Title: Why does L1 produce sparse solutions?
+Date: 2013-04-22 00:00
+Category: optimization
+Tags: optimization, sparsity
+Slug: l1-sparsity
 
   Supervised machine learning problems are typically of the form "minimize your
 error while regularizing your parameters." The idea is that while many choices
@@ -134,9 +132,9 @@ $$
   -\frac{1}{\lambda} \nabla f(x) \in \partial ||x||
 $$
 
-  If $||-\frac{1}{\lambda} \nabla f(x)||_{*} \le 1$ when $x=0, then we've already
-established that $-\frac{1}{\lambda} \nabla f(0)$ is in $\partial ||0||$. In
-other words, $x^{*} = 0$ solves the original problem!
+  If $||-\frac{1}{\lambda} \nabla f(x)||_{*} \le 1$ when $x=0$, then we've
+already established that $-\frac{1}{\lambda} \nabla f(0)$ is in $\partial
+||0||$. In other words, $x^{*} = 0$ solves the original problem!
 
 Onto Coordinate-wise Sparsity
 =============================

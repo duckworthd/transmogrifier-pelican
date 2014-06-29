@@ -105,6 +105,7 @@ This is already pretty cool, but there's even more. It ends up that ADMM works s
 On a final note, the proofs on convergence for ADMM are currently not as complete as those for other methods like Stochastic Gradient Descent. While it is known that the dual variable $y_t$ will converge as long as $f$ and $g$ are convex and a solution exists, we can only prove convergence of the primal variables $x_t$ and $z_t$ if they are constrained to lie in a polyhedron at this point in time.
 
 References
+==========
 
 - [Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers](http://www.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf)
 - [A Proof of Convergence For the Alternating Direction Method of Multipliers Applied to Polyhedral-Constrained Functions](http://arxiv.org/pdf/1112.2295.pdf)

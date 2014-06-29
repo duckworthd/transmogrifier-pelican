@@ -1,10 +1,8 @@
----
-comments: true
-layout: post
-title: Frank-Wolfe Algorithm
-subtitle: wut.
-
----
+Title: Frank-Wolfe Algorithm
+Date: 2013-05-04 00:00
+Category: optimization
+Tags: optimization, first-order, sparsity
+Slug: frank-wolfe
 
   In this post, we'll take a look at the [Frank-Wolfe Algorithm][frank_wolfe]
 also known as the Conditional Gradient Method, an algorithm particularly suited
@@ -365,8 +363,7 @@ machine learning.
 Reference Implementation
 ========================
 
-{% highlight python %}
-
+```python
 def frank_wolfe(minisolver, gradient, alpha, x0, epsilon=1e-2):
   """Frank-Wolfe Algorithm
 
@@ -461,6 +458,4 @@ if __name__ == '__main__':
 
     pl.savefig('figures/animation/%02d.png' % t)
     pl.close()
-
-
-{% endhighlight %}
+```

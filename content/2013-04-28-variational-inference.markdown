@@ -1,10 +1,8 @@
----
-comments: true
-layout: post
-title: Variational Inference
-subtitle: wut.
-
----
+Title: Variational Inference
+Date: 2013-04-28 00:00
+Category: optimization
+Tags: optimization, inference, bayesian
+Slug: variational-inference
 
   [Variational Inference][variational_inference] and Monte Carlo Sampling are
 currently the two chief ways of doing approximate Bayesian inference. In the

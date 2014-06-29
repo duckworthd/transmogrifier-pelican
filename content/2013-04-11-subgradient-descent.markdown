@@ -1,5 +1,5 @@
 Title: Subgradient Descent
-Date: 2012-04-11 00:00
+Date: 2013-04-11 00:00
 Category: optimization
 Tags: sgd, optimization, stochastic, first-order
 Slug: stochastic-gradient-descent
@@ -12,8 +12,7 @@ function we wish to minimize, $f(x)$.  If you were to follow the Subgradient
 Descent algorithm to walk down a mountain, it would look something like this,
 
 <div class="pseudocode">
-  1. Look around you and see which way points the most downwards. If there
-     are multiple directions that are equally downwards, just pick one.
+  1. Look around you and see which way points the most downwards. If there are multiple directions that are equally downwards, just pick one.
   2. Take a step in that direction. Then repeat.
 </div>
 
@@ -43,15 +42,14 @@ non-differentiable at $x$, there will be other options.
 have an algorithm for finding a point in the subdifferential, Subgradient
 Descent is
 
-<div class="img-center">
+<figure>
   <img src="/assets/img/subgradient_descent/subgradient.png"></img>
-  <span class="caption">
+  <figcaption>
     $f$ is differentiable at $x_1$, so there's only one possible subgradient
     (the actual gradient). At $x_2$, $f$ isn't differentiable, so $g_2$ and
-    $g_3$ are both in $\partial f(x_2)$. Image taken from [EE392o
-    slides][subgradient].
-  </span>
-</div>
+    $g_3$ are both in $\partial f(x_2)$. Image taken from [EE392o slides][subgradient].
+  </figcaption>
+</figure>
 
 <div class="pseudocode">
   **Input**: initial iterate $x^{(0)}$
@@ -148,11 +146,11 @@ $\arg\min_{x} f(x)$. Then,
 $$
 \begin{align*}
   ||x^{(t+1)} - x^{*}||_2^2
-  = & ||x^{(t)} - \alpha^{(t)} g^{(t)} - x^{*}||_2^2 
+  = & ||x^{(t)} - \alpha^{(t)} g^{(t)} - x^{*}||_2^2
     && \text{# Definition of $x^{(t+1)}$} \\
-  = & ||x^{(t)} - x^{*}||_2^2 - 2 \alpha^{(t)} \langle g^{(t)}, x^{(t)} - x^{*} \rangle + ( \alpha^{(t)} )^2 ||g^{(t)}||_2^2  
+  = & ||x^{(t)} - x^{*}||_2^2 - 2 \alpha^{(t)} \langle g^{(t)}, x^{(t)} - x^{*} \rangle + ( \alpha^{(t)} )^2 ||g^{(t)}||_2^2
     \\
-  \le & ||x^{(t)} - x^{*}||_2^2 - 2 \alpha^{(t)} ( f(x^{(t)}) - f(x^{*}) ) + ( \alpha^{(t)} )^2 ||g^{(t)}||_2^2  
+  \le & ||x^{(t)} - x^{*}||_2^2 - 2 \alpha^{(t)} ( f(x^{(t)}) - f(x^{*}) ) + ( \alpha^{(t)} )^2 ||g^{(t)}||_2^2
     \\
 \end{align*}
 $$
@@ -165,17 +163,17 @@ First, we apply Step 1 recursively to bound the current distance to $x^{*}$
 $$
 \begin{align*}
   ||x^{(t+1)} - x^{*}||_2^2
-  \le & ||x^{(t)} - x^{*}||_2^2 - 2 \alpha^{(t)} ( f(x^{(t)}) - f(x^{*}) ) + ( \alpha^{(t)} )^2 ||g^{(t)}||_2^2  
+  \le & ||x^{(t)} - x^{*}||_2^2 - 2 \alpha^{(t)} ( f(x^{(t)}) - f(x^{*}) ) + ( \alpha^{(t)} )^2 ||g^{(t)}||_2^2
     \\
   \le & \left( ||x^{(t-1)} - x^{*}||_2^2 - 2 \alpha^{(t-1)} ( f(x^{(t-1)}) - f(x^{*}) ) + ( \alpha^{(t-1)} )^2 ||g^{(t-1)}||_2^2 \right) \\
       & \quad - 2 \alpha^{(t)} ( f(x^{(t)}) - f(x^{*}) ) + ( \alpha^{(t)} )^2 ||g^{(t)}||_2^2
       && \text{# Apply recursion}\\
-    = & ||x^{(t-1)} - x^{*}||_2^2 
-        - 2 \sum_{\tau=t-1}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) ) 
+    = & ||x^{(t-1)} - x^{*}||_2^2
+        - 2 \sum_{\tau=t-1}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) )
         + \sum_{\tau=t-1}^{t} ( \alpha^{(\tau)} )^2 ||g^{(\tau)}||_2^2 \\
   \vdots \\
-  \le & ||x^{(0)} - x^{*}||_2^2 
-        - 2 \sum_{\tau=0}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) ) 
+  \le & ||x^{(0)} - x^{*}||_2^2
+        - 2 \sum_{\tau=0}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) )
         + \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )^2 ||g^{(\tau)}||_2^2 \\
 \end{align*}
 $$
@@ -185,11 +183,11 @@ $$
 $$
 \begin{align*}
   0
-  \le & ||x^{(0)} - x^{*}||_2^2 
-        - 2 \sum_{\tau=0}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) ) 
+  \le & ||x^{(0)} - x^{*}||_2^2
+        - 2 \sum_{\tau=0}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) )
         + \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )^2 ||g^{(\tau)}||_2^2 \\
-  2 \sum_{\tau=0}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) ) 
-  \le & ||x^{(0)} - x^{*}||_2^2 
+  2 \sum_{\tau=0}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) )
+  \le & ||x^{(0)} - x^{*}||_2^2
         + \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )^2 ||g^{(\tau)}||_2^2 \\
 \end{align*}
 $$
@@ -210,17 +208,17 @@ $$
 \begin{align*}
   2 \left( \min_{\tau \in 0 \ldots t} f(x^{(\tau)}) - f(x^{*}) \right) \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )
   \le & 2 \sum_{\tau=0}^{t} \alpha^{(\tau)} ( f(x^{(\tau)}) - f(x^{*}) ) \\
-  \le & ||x^{(0)} - x^{*}||_2^2 
+  \le & ||x^{(0)} - x^{*}||_2^2
           + \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )^2 ||g^{(\tau)}||_2^2 \\
   \left( \min_{\tau \in 0 \ldots t} f(x^{(\tau)}) \right) - f(x^{*})
-  \le & \frac{ 
-          ||x^{(0)} - x^{*}||_2^2 
+  \le & \frac{
+          ||x^{(0)} - x^{*}||_2^2
           + \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )^2 ||g^{(\tau)}||_2^2
         }{
           2 \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )
         } \\
   \left( \min_{\tau \in 0 \ldots t} f(x^{(\tau)}) \right) - f(x^{*})
-  \le & \frac{ 
+  \le & \frac{
           R^2
           + G^2 \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )^2
         }{
@@ -236,12 +234,12 @@ $\alpha^{(\tau)}$). Then,
 $$
 \begin{align*}
   \left( \min_{\tau \in 0 \ldots t} f(x^{(\tau)}) \right) - f(x^{*})
-  \le & \frac{ 
+  \le & \frac{
           R^2 + G^2 \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )^2
         }{
           2 \sum_{\tau=0}^{t} ( \alpha^{(\tau)} )
         } \\
-    = & \frac{ 
+    = & \frac{
           R^2 + G^2 \frac{R^2}{G^2} \sum_{\tau=0}^{t} \frac{1}{t+1}
         }{
           2 \frac{R}{G} \sum_{\tau=0}^{t} \frac{1}{\sqrt{t+1}}
@@ -330,8 +328,7 @@ page 23 of Stephen Boyd's [lecture slides for EE364b][subgradient_slides].
 Reference Implementation
 ========================
 
-{% highlight python %}
-
+```python
 def subgradient_descent(function, subgradient, x0, alpha, n_iterations=100):
   """Subgradient Descent
 
@@ -395,5 +392,4 @@ if __name__ == '__main__':
                                      path='figures/iterates.png', y_star=0.0)
   plotting.plot_iteration_vs_function(iterates, function,
                                       path='figures/convergence.png', y_star=0.0)
-
-{% endhighlight %}
+```

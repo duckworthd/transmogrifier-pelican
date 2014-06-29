@@ -1,10 +1,8 @@
----
-comments: true
-layout: post
-title: A Coordinate Ascent Algorithm for Convex Clustering
-subtitle: wut.
-
----
+Title: Coordinate Ascent for Convex Clustering
+Date: 2013-04-23 00:00
+Category: optimization
+Tags: optimization, coordinate-descent, clustering
+Slug: coordinate-ascent-convex-clustering
 
   Convex clustering is the reformulation of k-means clustering as a convex
 problem. While the two problems are not equivalent, the former can be seen as a

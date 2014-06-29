@@ -1,5 +1,5 @@
 Title: Gradient Descent
-Date: 2012-04-10 00:00
+Date: 2013-04-10 00:00
 Category: optimization
 Tags: gradient, descent, first-order, optimization
 Slug: gradient-descent

@@ -1,10 +1,8 @@
----
-comments: true
-layout: post
-title: Accelerated Gradient Descent
-subtitle: wut.
-
----
+Title: Accelerated Gradient Descent
+Date: 2013-04-12 00:00
+Category: optimization
+Tags: optimization, first-order, accelerated
+Slug: accelerated-gradient-descent
 
   In the mid-1980s, Yurii Nesterov hit the equivalent of an academic home run.
 At the same time, he established the Accelerated Gradient Method, proved that
@@ -324,8 +322,7 @@ Vandenberghe's [EE236c slides][proof] hosted by Zaiwen Wen.
 Reference Implementation
 ========================
 
-{% highlight python %}
-
+```python
 def accelerated_gradient(gradient, y0, alpha, n_iterations=100):
   """Accelerated Gradient Method
 
@@ -394,5 +391,4 @@ if __name__ == '__main__':
                                      path='figures/iterates.png', y_star=0.0)
   plotting.plot_iteration_vs_function(iterates, function,
                                       path='figures/convergence.png', y_star=0.0)
-
-{% endhighlight %}
+```

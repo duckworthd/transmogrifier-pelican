@@ -1,15 +1,10 @@
----
-comments: true
-layout: post
-title: Proximal Gradient Descent
-subtitle: wut.
+Title: Proximal Gradient Descent
+Date: 2013-04-19 00:00
+Category: optimization
+Tags: optimization, first-order, proximal
+Slug: proximal-gradient-descent
 
----
-
-$$
-  \def\prox{\text{prox}}
-$$
-
+  $ \def\prox{\text{prox}} $
   In a [previous post][subgradient_descent_usage], I mentioned that one cannot
 hope to asymptotically outperform the $O(\frac{1}{\epsilon^2})$ convergence
 rate of Subgradient Descent when dealing with a non-differentiable objective
@@ -433,8 +428,7 @@ John Duchi's article on [Forward-Backward Splitting (FOBOS)][fobos]
 Reference Implementation
 ========================
 
-{% highlight python %}
-
+```python
 def proximal_gradient_descent(g_gradient, h_prox, x0,
                               alpha, n_iterations=100):
   """Proximal Gradient Descent
@@ -513,5 +507,4 @@ if __name__ == '__main__':
   plotting.plot_iteration_vs_function(iterates, function,
                                       path='figures/convergence.png',
                                       y_star=0.69314718055994529)
-
-{% endhighlight %}
+```

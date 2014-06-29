@@ -56,15 +56,13 @@ generate data from a Mixture Model.
 for generating a sample given the model's parameters is given by the following
 python snippet.
 
-{% highlight python %}
-
+```python
 def sample_mixture_model(n_data_points, cluster_weights, cluster_parameters):
   for i in range(n_data_points):
     cluster = sample_categorical(cluster_weights)
     mean, variance = cluster_parameters[cluster]
     yield sample_normal(mean, variance)
-
-{% endhighlight %}
+```
 
   Simple, right?  First, a cluster is chosen for this data point. Each cluster
 has some probability of being chosen, given by `cluster_weights[i]`.  Once a
@@ -82,8 +80,7 @@ share the same `cluster_parameters`.
 
   To make that concrete, let's look at how we would generate samples from LDA.
 
-{% highlight python %}
-
+```python
 def sample_lda(n_data_points_per_document, all_cluster_weights, cluster_parameters):
   n_documents = len(all_cluster_weights)  # number of documents
   for d in range(n_documents):
@@ -94,8 +91,7 @@ def sample_lda(n_data_points_per_document, all_cluster_weights, cluster_paramete
         'document_number': d,
         'data_point': sample
       }
-
-{% endhighlight %}
+```
 
   Notice that here we don't just return the data point by itself.  In LDA, we
 know which "document" each data point comes from, which is just a little bit

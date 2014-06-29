@@ -1,16 +1,11 @@
----
-comments: true
-layout: post
-title: Accelerated Proximal Gradient Descent
-subtitle: wut.
+Title: Accelerated Proximal Gradient Descent
+Date: 2013-04-25 00:00
+Category: optimization
+Tags: optimization, first-order, accelerated, proximal
+Slug: accelerated-proximal-gradient-descent
 
----
-
-$$
-  \def\prox{\text{prox}}
-$$
-
-  In the [previous post][proximal_gradient], I presented Proximal Gradient, a
+  $\def\prox{\text{prox}}$
+  In a [previous post][proximal_gradient], I presented Proximal Gradient, a
 method for bypassing the $O(1 / \epsilon^2)$ convergence rate of Subgradient
 Descent.  This method relied on assuming that the objective function could be
 expressed as the sum of 2 functions, $g(x)$ and $h(x)$, with $g$ being
@@ -316,8 +311,7 @@ Vandenberghe's fantastic [EE236c slides][convergence].
 Reference Implementation
 ========================
 
-{% highlight python %}
-
+```python
 def accelerated_proximal_gradient(g_gradient, h_prox, x0,
                                   alpha, n_iterations=100):
   """Proximal Gradient Descent
@@ -399,5 +393,4 @@ if __name__ == '__main__':
   plotting.plot_iteration_vs_function(iterates, function,
                                       path='figures/convergence.png',
                                       y_star=0.69314718055994529)
-
-{% endhighlight %}
+```
