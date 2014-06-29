@@ -41,7 +41,6 @@ DEFAULT_PAGINATION = False
 # for additional functionality...
 PLUGIN_PATH = 'plugins'
 PLUGINS = [
-  'render_math',
 ]
 
 # for prettiness...
@@ -53,4 +52,3 @@ MD_EXTENSIONS = [
   'extra',
   'mathjax',
 ]
-import mdx_mathjax  # force loading of mathjax extension
