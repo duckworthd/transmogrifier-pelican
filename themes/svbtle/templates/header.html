@@ -1,11 +1,39 @@
-{% if article and article.author %}
+{% if article %}
 	<header>
-		<h1>{{ article.author }}'s blog</h1>
-		<h3>Posted {{ article.locale_date }}</h3>
+    {% if article.title %}
+      <h1 class="title">
+			  <a  href="{{ SITEURL }}/{{ article.url }}"
+            rel="bookmark"
+			  	  title="Permalink to {{ article.title|striptags }}">
+          {{ article.title }}
+        </a>
+      </h1>
+    {% endif %}
+    {#
+      {% if article.author %}
+        <h3 class="author">{{ article.author }}</h3>
+      {% elif AUTHOR %}
+        <h3 class="author">{{ AUTHOR }}</h3>
+      {% endif %}
+    #}
+    {% if article.locale_date %}
+		  <abbr class="published">{{ article.locale_date }}</abbr>
+    {% endif %}
+	</header>
+{% elif page %}
+	<header>
+    {% if page.title %}
+      <h1 class="title">
+			  <a  href="{{ SITEURL }}/{{ page.url }}"
+            rel="bookmark"
+			  	  title="Permalink to {{ page.title|striptags }}">
+          {{ page.title }}
+        </a>
+      </h1>
+    {% endif %}
 	</header>
 {% else %}
 	<header>
-		<h1>{{ AUTHOR }}'s blog</h1>
 		<h3>
 			<script type="text/javascript">
 				var currentDate = new Date();
