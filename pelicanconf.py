@@ -3,8 +3,8 @@
 from __future__ import unicode_literals
 
 AUTHOR   = u'Daniel Duckworth'
-SITENAME = u'Strongly Convex'
-SITEURL  = '/'
+SITENAME = u'STRONGLY CONVEX'
+SITEURL  = ''
 
 TIMEZONE = 'US/Pacific'
 
@@ -47,6 +47,7 @@ PLUGINS = [
 # for prettiness...
 THEME = "themes/svbtle"
 
+# for code highlighting, math
 MD_EXTENSIONS = [
   'codehilite(css_class=highlight)',
   'extra',
