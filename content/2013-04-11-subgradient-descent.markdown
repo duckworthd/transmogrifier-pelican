@@ -1,8 +1,8 @@
 Title: Subgradient Descent
 Date: 2013-04-11 00:00
 Category: optimization
-Tags: sgd, optimization, stochastic, first-order
-Slug: stochastic-gradient-descent
+Tags: optimization, first-order, subgradient
+Slug: subgradient-descent
 
   Not far from [Gradient Descent][gradient_descent] is another first-order
 descent algorithm (that is, an algorithm that only relies on the first
@@ -316,7 +316,7 @@ EE392o][subgradient_methods] course in 2003.
   **Polyak Step Size** The algorithm for the Polyak step size was taken from
 page 23 of Stephen Boyd's [lecture slides for EE364b][subgradient_slides].
 
-[gradient_descent]: /blog/gradient-descent.html
+[gradient_descent]: {filename}/2013-04-10-gradient-descent.markdown
 [subgradient]: http://www.stanford.edu/class/ee392o/subgrad.pdf
 [subgradient_methods]: http://www.stanford.edu/class/ee392o/subgrad_method.pdf
 [subgradient_slides]: http://www.stanford.edu/class/ee364b/lectures/subgrad_method_slides.pdf

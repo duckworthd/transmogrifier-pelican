@@ -422,9 +422,9 @@ Laurent El Ghaoui's [EE227a slides][proof].
 John Duchi's article on [Forward-Backward Splitting (FOBOS)][fobos]
 
 [proof]: http://www.eecs.berkeley.edu/~elghaoui/Teaching/EE227A/lecture18.pdf
-[subgradient_descent]: /blog/subgradient-descent.html
+[subgradient_descent]: {filename}/2013-04-11-subgradient-descent.markdown
 [subgradient_descent_usage]: /blog/subgradient-descent.html#usage
-[gradient_descent]: /blog/gradient-descent.html
+[gradient_descent]: {filename}/2013-04-10-gradient-descent.markdown
 [gradient_descent_proof]: /blog/gradient-descent.html#proof
 [fobos]: http://www.cs.berkeley.edu/~jduchi/projects/DuchiSi09c.pdf
 

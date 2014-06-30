@@ -19,8 +19,8 @@ TRANSLATION_FEED_ATOM = None
 
 LINKS = [
   ('Words', "/"),
-  ('Code' , "/pages/code.html" ),
-  ('About', "/pages/about.html"),
+  ('Code' , "/code.html" ),
+  ('About', "/about.html"),
 ]
 
 SOCIAL = [
@@ -32,6 +32,9 @@ STATIC_PATHS = [
   "assets",
 ]
 
+# the URL format used for articles and pages
+ARTICLE_URL = ARTICLE_SAVE_AS = 'blog/{slug}.html'
+PAGE_URL    = PAGE_SAVE_AS    = '{slug}.html'
 
 DEFAULT_PAGINATION = False
 

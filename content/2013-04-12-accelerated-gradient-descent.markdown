@@ -312,10 +312,10 @@ fixed number of iterations or when $||\nabla f(x^{(t)})||_2$ is small.
   **Proof of Convergence** The proof of convergence is thanks to Lieven
 Vandenberghe's [EE236c slides][proof] hosted by Zaiwen Wen.
 
-[gradient_descent]: /blog/gradient-descent.html
+[gradient_descent]: {filename}/2013-04-10-gradient-descent.markdown
 [gradient_descent_example]: /blog/gradient-descent.html#example
-[subgradient_descent]: /blog/subgradient-descent.html
 [proof]: http://math.sjtu.edu.cn/faculty/zw2109/course/sp04-2-gradient.pdf
+[subgradient_descent]: {filename}/2013-04-11-subgradient-descent.markdown
 
 <a name="reference-impl" href="#reference-impl">Reference Implementation</a>
 ============================================================================

@@ -301,12 +301,11 @@ Gradient][proximal_gradient_line_search].
 Vandenberghe's fantastic [EE236c slides][convergence].
 
 [convergence]: http://www.ee.ucla.edu/~vandenbe/236C/lectures/fgrad.pdf
-[proximal_gradient]: /blog/proximal-gradient.html
-[proximal_gradient_line_search]: /blog/proximal-gradient.html#line_search
-[proximal_gradient_intuition]: /blog/proximal-gradient.html#intuition
-[accelerated_gradient]: /blog/accelerated-gradient-descent.html
+[proximal_gradient]: {filename}/2013-04-19-proximal-gradient.markdown
+[proximal_gradient_line_search]: /blog/proximal-gradient-descent.html#line_search
+[proximal_gradient_intuition]: /blog/proximal-gradient-descent.html#intuition
+[accelerated_gradient]: {filename}/2013-04-12-accelerated-gradient-descent.markdown
 [accelerated_gradient_usage]: /blog/accelerated-gradient-descent.html#usage
-
 
 <a name="reference-impl" href="#reference-impl">Reference Implementation</a>
 ============================================================================

@@ -352,9 +352,9 @@ article comes from [Jaggi's][jaggi2013] fantastic article on Frank-Wolfe for
 machine learning.
 
 [frank_wolfe]: http://en.wikipedia.org/wiki/Frank%E2%80%93Wolfe_algorithm
-[proximal_gradient]: /blog/proximal-gradient.html
-[accelerated_proximal_gradient]: /blog/accelerated-proximal-gradient.html
-[gradient_descent]:/blog/gradient-descent.html
+[proximal_gradient]: {filename}/2013-04-19-proximal-gradient.markdown
+[accelerated_proximal_gradient]: {filename}/2013-04-25-accelerated-proximal-gradient.markdown
+[gradient_descent]: {filename}/2013-04-10-gradient-descent.markdown
 [line_search]: /blog/gradient-descent.html#line_search
 [condition_number]: http://en.wikipedia.org/wiki/Condition_number
 [chandrasekaranm2010]: http://pages.cs.wisc.edu/~brecht/papers/2010-crpw_inverse_problems.pdf
