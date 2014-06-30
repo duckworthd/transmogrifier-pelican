@@ -374,38 +374,44 @@ applying Proximal Gradient immediately -- you'll converge far faster than
 Subgradient Descent.
 
 <table class="table table-bordered table-centered">
-  <tr>
-    <th>$h(x)$</th>
-    <th>$\prox_{\alpha h}(x)$</th>
-  </tr>
-  <tr>
-    <td>$||x||_1$</td>
-    <td>$\text{sign}(x) \max(0, \text{abs}(x) - \alpha)$</td>
-  </tr>
-  <tr>
-    <td>$\frac{1}{2}||x||_2^2$</td>
-    <td>$\frac{1}{1 + \alpha} x$</td>
-  </tr>
-  <tr>
-    <td>$||x||_2$</td>
-    <td>$\left( 1 - \frac{\alpha}{||x||_2} \right) x$</td>
-  </tr>
-  <tr>
-    <td>$||x||_{\infty}$</td>
-    <td>
-$$\text{sign}(x) \min( \text{abs}(x), \theta )$$
+  <thead>
+    <tr>
+      <th>$h(x)$</th>
+      <th>$\prox_{\alpha h}(x)$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$||x||_1$</td>
+      <td>$\text{sign}(x) \max(0, \text{abs}(x) - \alpha)$</td>
+    </tr>
+    <tr>
+      <td>$\frac{1}{2}||x||_2^2$</td>
+      <td>$\frac{1}{1 + \alpha} x$</td>
+    </tr>
+    <tr>
+      <td>$||x||_2$</td>
+      <td>$\left( 1 - \frac{\alpha}{||x||_2} \right) x$</td>
+    </tr>
+    <tr>
+      <td>$||x||_{\infty}$</td>
+      <td>
+          $\text{sign}(x) \min( \text{abs}(x), \theta )$
 
-  where
+        where
 
-$$\theta = \frac{1}{\rho} \sum_{j : |x_j| > |x_{(\rho)}|} (|x_j| - \alpha)$$
+          $\theta = \frac{1}{\rho} \sum_{j : |x_j| > |x_{(\rho)}|} (|x_j| - \alpha)$
 
-  where $x_{(i)}$ is is the $i$-th largest element of $x$ in magnitude and $\rho$ is the smallest $i$ such that $\sum_{j : |x_j| > |x_{(i)}|} (|x_j| - |x_{(i)}|) < \alpha$.
-    </td>
-  </tr>
-  <tr>
-    <td>$\frac{1}{2} x^T Q x + b^T x$</td>
-    <td>$(\alpha Q + I)^{-1} (x - \alpha b)$</td>
-  </tr>
+        where $x_{(i)}$ is is the $i$-th largest element of $x$ in magnitude and
+        $\rho$ is the smallest $i$ such that
+        $\sum_{j : |x_j| > |x_{(i)}|} (|x_j| - |x_{(i)}|) < \alpha$.
+      </td>
+    </tr>
+    <tr>
+      <td>$\frac{1}{2} x^T Q x + b^T x$</td>
+      <td>$(\alpha Q + I)^{-1} (x - \alpha b)$</td>
+    </tr>
+  </tbody>
 </table>
 
 References
