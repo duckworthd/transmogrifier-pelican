@@ -29,10 +29,10 @@ $$
   Using these two assumptions, we can obtain a convergence rate identical to
 Gradient Descent even when optimizing non-differentiable objective functions.
 
-How does it work?
-=================
+<a name="implementation" href="#implementation">How does it work?</a>
+=====================================================================
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input**: initial iterate $x^{(0)}$
 
   1. For $t = 0, 1, 2, \ldots$
@@ -42,8 +42,8 @@ How does it work?
 
 <a id="intuition"></a>
 
-Intuition for the $\prox$ Operator
-==================================
+<a name="intuition" href="#intuition">Intuition for the $\prox$ Operator</a>
+============================================================================
 
   At first sight, the $\prox$ operator looks suspicious.  Where did it come
 from? Why did someone really think it would work?  It ends up that we can
@@ -77,8 +77,8 @@ $$
 $\nabla g(x^{(t)})^T (y-x^{(t)})$ into the quadratic term, leading us to the
 Proximal Gradient Descent update.
 
-A Small Example
-===============
+<a name="example" href="#example">A Small Example</a>
+=====================================================
 
   Let's now see how well Proximal Gradient Descent works.  For this example,
 we'll solve the following problem,
@@ -116,8 +116,8 @@ Proximal Gradient Descent and an initial choice of $x^{(0)} = 5$.
   </span>
 </div>
 
-Why does it work?
-=================
+<a name="proof" href="#proof">Why does it work?</a>
+===================================================
 
   Proximal Gradient Descent, like regular Gradient Descent, is a "descent"
 method where the objective value is guaranteed to decrease. In fact, the
@@ -292,8 +292,8 @@ want $(g+h)(x^{(t)}) - (g+h)(x^{*}) \le \epsilon$, we need
 $O(\frac{1}{\epsilon})$ iterations, just like Gradient Descent.
 
 
-When should I use it?
-=====================
+<a name="usage" href="#usage">When should I use it?</a>
+=======================================================
 
   Proximal Gradient Descent requires being able to easily calculate
 $\prox_{\alpha h}(x)$.  The benefits of doing so are clear -- we can reach an
@@ -305,8 +305,8 @@ below); it is then that Proximal Gradient Descent should be used. For other
 cases where no closed-form solution exists, it is often better to stick with
 Subgradient Descent.
 
-Extensions
-==========
+<a name="extensions" href="#extensions">Extensions</a>
+======================================================
 
   <a id="line_search"></a>
   **Step Size** The proof above assumes the step size $\alpha^{(t)} \le
@@ -353,7 +353,7 @@ $$
   In other words, we can perform Backtracking Line Search for Proximal Gradient Descent as follows,
 
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input**: iterate $x^{(t)}$, initial step size $\alpha_0$, step factor $\beta$
 
   1. $\alpha = \alpha_0$
@@ -363,10 +363,8 @@ $$
     4. otherwise set $\alpha \leftarrow \alpha \beta$ and continue
 </div>
 
-<a id="common_prox_functions"></a>
-
-Common $\prox$ Functions
-========================
+<a name="common-prox" href="#common-prox">Common $\prox$ Functions</a>
+======================================================================
 
   There are several common choices for $h(x)$ that admit particularly efficient
 $\prox$ functions. If your objective function contains one of these, consider
@@ -414,8 +412,8 @@ Subgradient Descent.
   </tbody>
 </table>
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   **Proof of Convergence** The original proof of convergence is thanks to
 Laurent El Ghaoui's [EE227a slides][proof].
@@ -431,8 +429,8 @@ John Duchi's article on [Forward-Backward Splitting (FOBOS)][fobos]
 [fobos]: http://www.cs.berkeley.edu/~jduchi/projects/DuchiSi09c.pdf
 
 
-Reference Implementation
-========================
+<a name="reference-impl" href="#reference-impl">Reference Implementation</a>
+============================================================================
 
 ```python
 def proximal_gradient_descent(g_gradient, h_prox, x0,

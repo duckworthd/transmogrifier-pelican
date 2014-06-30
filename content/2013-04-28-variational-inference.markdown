@@ -44,8 +44,8 @@ posteriors lie in the exponential family, and that the individual variational
 distributions match -- we can apply Coordinate Ascent to minimize the
 KL-divergence between the mean field distribution and the posterior.
 
-Derivation of the Objective
-===========================
+<a name="derivation" href="#derivation">Derivation of the Objective</a>
+=======================================================================
 
   The original intuition for Variational Inference stems from lower bounding
 the marginal likelihood of the observed variables $P(x)$, then maximizing that
@@ -106,8 +106,8 @@ form of $q(z|\eta)$, we can potentially decompose the KL divergence into more
 easily manageable bits.
 
 
-The Mean Field Approximation
-============================
+<a name="mean-field" href="#mean-field">The Mean Field Approximation</a>
+========================================================================
 
   The key to avoiding the massive sum of the previous equation is to assume that
 $q(z|\eta)$ decomposes into a product of independent distributions. This is
@@ -215,8 +215,8 @@ under our approximation to the posterior $q(z_{-k}|\eta_{-k})$. How do we do
 this? Let's take a look at an example to make this concrete.
 
 
-Example
-=======
+<a name="example" href="#example">Example</a>
+=============================================
 
   For this part, let's take a look at the model defined by Latent Dirichlet
 Allocation (LDA),
@@ -225,7 +225,7 @@ Allocation (LDA),
   <img src="/assets/img/variational_inference/graphical_model.png"></img>
 </div>
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input:** document-topic prior $\alpha$, topic-word prior $\beta$
 
 1. For each topic $k = 1 \ldots K$
@@ -358,8 +358,8 @@ updates for $q(z_{i,j}|\gamma_{i,j})$ and $q(\phi_k|\psi_k)$, though you can
 find a (messier) derivation in the original paper on [Latent Dirichlet
 Allocation][lda].
 
-Aside: Coordinate Ascent is Gradient Ascent
-===========================================
+<a name="aside" href="#aside">Aside: Coordinate Ascent is Gradient Ascent</a>
+=============================================================================
 
   Coordinate Ascent on the Mean Field Approximation is the "traditional" way
 one does Variational Inference, but Coordinate Ascent is far from the only
@@ -548,8 +548,8 @@ linear combination of the old parameters and the parameters Coordinate Ascent
 would recommend. If $\alpha^{(t)} = 1$, then we just get the old Coordinate
 Ascent update!
 
-Extensions
-==========
+<a name="extensions" href="#extensions">Extensions</a>
+======================================================
 
   The Variational Inference method I described here, while general in concept,
 can only easily be applied to a very particular class models -- ones where
@@ -591,8 +591,8 @@ non-conjugate models due to sampling for estimating expectations.
   ["Variational Inference in Nonconjugate Models"][nonconjugate] -- Getting
 away from conjugate priors via Laplace and the Delta Method.
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   The seminal work on the Natural Gradient is due to Shunichi Amari's ["Natural
 Gradient Works Efficiently in Learning"][amari]. The derivation for the natural

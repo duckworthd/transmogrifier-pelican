@@ -23,8 +23,8 @@ Gradient Descent and Proximal Gradient to obtain a new algorithm?"  Well if we
 couldn't, why the hell would I be writing about something called "Accelerated
 Proximal Gradient."  C'mon people, work with me.  Now let's get on with it!
 
-How does it work?
-=================
+<a name="implementation" href="#implementation">How does it work?</a>
+=====================================================================
 
   As you might guess, the setup is precisely the same as Proximal Gradient. Let
 our objective be expressed as the sum of 2 functions,
@@ -38,7 +38,7 @@ function can cheaply be computed. Given that, the algorithm is pretty much what
 you would expect from the lovechild of Proximal Gradient and Accelerated
 Gradient Descent,
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input**: initial iterate $x^{(0)}$
 
   1. Let $y^{(0)} = x^{(0)}$
@@ -49,8 +49,8 @@ Gradient Descent,
 </div>
 
 
-A Small Example
-===============
+<a name="example" href="#example">A Small Example</a>
+=====================================================
 
   To illustrate Accelerated Proximal Gradient, I'll use the same objective function as I did in illustrating Proximal Gradient Descent. Namely,
 
@@ -90,8 +90,8 @@ size.
   </span>
 </div>
 
-Why does it work?
-=================
+<a name="proof" href="#proof">Why does it work?</a>
+===================================================
 
   For the proof of Accelerated Proximal Gradient, we'll make the same
 assumptions we did in Proximal Gradient. Namely,
@@ -273,8 +273,8 @@ $\frac{1 - \theta^{(t)}}{ (\theta^{(t)})^2 } \le \frac{1}{ (\theta^{(t)})^2 }$,
 which holds for either definition.
 
 
-When should I use it?
-=====================
+<a name="usage" href="#usage">When should I use it?</a>
+=======================================================
 
   As with [Accelerated Gradient][accelerated_gradient_usage], the algorithm
 works well *as long as you get the step size right*. That means Backtracking
@@ -284,8 +284,8 @@ Gradient by employing Accelerated Proximal Gradient; with that said, test a
 Proximal Gradient algorithm first, and advance to Accelerated Proximal Gradient
 only if you're sure you need the faster convergence rate.
 
-Extensions
-==========
+<a name="extensions" href="#extensions">Extensions</a>
+======================================================
 
   **Step Size** As with Accelerated Gradient, getting the correct step size is
 of utmost importance. If $\alpha^{(t)} > \frac{1}{L}$, *the algorithm will
@@ -294,8 +294,8 @@ You can find an implementation in [my previous post on Proximal
 Gradient][proximal_gradient_line_search].
 
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   **Proof of convergence** The proof of convergence is taken from Lieven
 Vandenberghe's fantastic [EE236c slides][convergence].
@@ -308,8 +308,8 @@ Vandenberghe's fantastic [EE236c slides][convergence].
 [accelerated_gradient_usage]: /blog/accelerated-gradient-descent.html#usage
 
 
-Reference Implementation
-========================
+<a name="reference-impl" href="#reference-impl">Reference Implementation</a>
+============================================================================
 
 ```python
 def accelerated_proximal_gradient(g_gradient, h_prox, x0,

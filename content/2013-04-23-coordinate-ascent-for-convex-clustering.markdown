@@ -23,8 +23,8 @@ close to each other and are distant from points in other groups.
   </span>
 </div>
 
-K-Means
-=======
+<a name="k-means" href="#k-means">K-Means</a>
+=============================================
 
   The original objective for k-means clustering is as follows. Suppose we want
 to find $k$ sets $S_i$ such that every $x_i$ is in exactly 1 set $S_j$. Each $S_j$
@@ -45,8 +45,8 @@ say whether or not we've found an optimal solution $S^{*}$. In other words, we
 can approximately solve k-means, but actually solving it is very
 computationally intense (with the usual caveats about $P = NP$).
 
-Convex Clustering
-=================
+<a name="convex-clustering" href="#convex-clustering">Convex Clustering</a>
+===========================================================================
 
   Convex clustering sidesteps this complexity result by proposing a new
 problem that we *can* solve quickly. The optimal solution for this new problem
@@ -73,8 +73,8 @@ and is used primarily because many of the elements in this sum will be 0 at the
 optimum. In convex clustering, that means $u_i = u_j$ for some pairs $i$ and
 $j$ -- in other words, $i$ and $j$ are clustered together!
 
-Algorithms for Convex Clustering
-================================
+<a name="algorithms" href="#algorithms">Algorithms for Convex Clustering</a>
+============================================================================
 
   As the convex clustering formulation is a convex problem, we automatically
 get a variety of black-box algorithms capable of solving it. Unfortunately, the
@@ -155,8 +155,8 @@ optimum.
 $d =$ the dimensionality of $x_i$, $c = $ the current number of clusters
 -->
 
-Problem Reformulation
-=====================
+<a name="reformulation" href="#reformulation">Problem Reformulation</a>
+=======================================================================
 
   To describe the dual problem being maximized, we first need to modify the
 primal problem. First, let $z_l = u_{l_1} - u_{l_2}$. Then we can write the
@@ -189,8 +189,8 @@ $$
   u_i = \Delta_i + x_i
 $$
 
-Coordinate Ascent
-=================
+<a name="coordinate-ascent" href="#coordinate-ascent">Coordinate Ascent</a>
+===========================================================================
 
   Now let's optimize the dual problem 1 $\lambda_k$ at a time. First, notice
 that $\lambda_k$ will only appear in 2 $\Delta_i$ terms -- $\Delta_{k_1}$ and
@@ -246,7 +246,7 @@ $$
   This problem is simply a Euclidean projection onto the ball defined by
 $||\cdot||_{p^{*}}$. We're now ready to write the algorithm,
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input:** Initial dual variables $\lambda^{(0)}$, weights $w_l$, and regularization parameter $\gamma$
 
 1. Initialize $\Delta_i^{(0)} = \sum_{l: l_1 = i} \lambda_l^{(0)} - \sum_{l: l_2 = i} \lambda_l^{(0)}$
@@ -264,13 +264,8 @@ $||\cdot||_{p^{*}}$. We're now ready to write the algorithm,
 and can evaluate the primal and dual functions in closed form, we can use the
 duality gap to determine when we are converged.
 
-Performance
-===========
-
-  TODO compare again previous methods.
-
-Conclusion
-==========
+<a name="conclusion" href="#conclusion">Conclusion</a>
+======================================================
 
   In this post, I introduced a coordinate ascent algorithm for convex
 clustering. Empirically, the algorithm is quite quick, but it doesn't share the
@@ -287,8 +282,8 @@ variables allow for centers to be merged, allowing for potential space-savings
 as the algorithm is running. The dual seems to lack this property, requiring
 all dual variables to be fully instantiated.
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   The original formulation for convex clustering was introduced by [Lindsten et
 al.][relax] and [Hocking et al.][clusterpath]. [Chi et al.][chi] introduced

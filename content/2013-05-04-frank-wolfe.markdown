@@ -16,7 +16,7 @@ reward for doing so is a converge rate of $O(1/\epsilon)$ and the potential for
   Returning to my [valley-finding metaphor][gradient_descent], Frank-Wolfe is a
 bit like this,
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   1. Look around you and see which way points the most downwards
   2. Walk as far as possible in that direction until you hit a wall
   3. Go back in the direction you started, stop part way along the path, then
@@ -24,8 +24,8 @@ bit like this,
 </div>
 
 
-How does it work?
-=================
+<a name="implementation" href="#implementation">How does it work?</a>
+=====================================================================
 
   Frank-Wolfe is designed to solve problems of the form,
 
@@ -36,7 +36,7 @@ $$
   where $D$ is compact and $f$ is differentiable. For example, in $R^n$ any
 closed and bounded set is compact. The algorithm for Frank-Wolfe is then,
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input**: Initial iterate $x^{(0)}$
 
   1. For $t = 0, 1, 2, \ldots$
@@ -86,8 +86,8 @@ $$
 
 <a id="example"></a>
 
-A Small Example
-===============
+<a name="example" href="#example">A Small Example</a>
+=====================================================
 
   For this example, we'll minimize a simple univariate quadratic function
 constrained to lie in an interval,
@@ -135,8 +135,8 @@ next section.
 
 <a id="proof"></a>
 
-Why does it work?
-=================
+<a name="proof" href="#proof">Why does it work?</a>
+===================================================
 
   We begin by making the two assumptions given earlier,
 
@@ -242,8 +242,8 @@ rate of Gradient Descent an Proximal Gradient Descent, but falls short of their
 accelerated brethren.
 
 
-When should I use it?
-=====================
+<a name="usage" href="#usage">When should I use it?</a>
+=======================================================
 
   Like Proximal Gradient, efficient use of Frank-Wolfe requires solving a
 mini-optimization problem at each iteration. Unlike Proximal Gradient, however,
@@ -281,8 +281,8 @@ finding which element of $\mathcal{A}$ minimizes $\langle \nabla f(x), s
 lot more on Atomic Norms, see [this tome][chandrasekaranm2010] by
 Chandrasekaranm et al.
 
-Extensions
-==========
+<a name="extensions" href="#extensions">Extensions</a>
+======================================================
 
   **Step Size** The proof above relied on a step size of $\alpha^{(t)} =
 \frac{2}{t+2}$, but as usual [Line Search][line_search] can be applied to
@@ -309,8 +309,8 @@ $$
   The proof for this can be found in the supplement to [Jaggi's][jaggi2013]
 excellent survey on Frank-Wolfe for machine learning.
 
-Linear Invariance
-=================
+<a name="invariance" href="#invariance">Linear Invariance</a>
+=============================================================
 
   Another cool fact about Frank-Wolfe is that it's *linearly invariant* -- that
 is, if you rotate and scale the space, nothing changes about the convergence
@@ -344,8 +344,8 @@ the space, Frank-Wolfe will do the same thing. This also means that if there's
 a linear transformation you can do to make the points of your polyhedron
 sparse, you can do it with no penalty!
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   **Proof of Convergence, Linear Invariance** Pretty much everything in this
 article comes from [Jaggi's][jaggi2013] fantastic article on Frank-Wolfe for
@@ -360,8 +360,8 @@ machine learning.
 [chandrasekaranm2010]: http://pages.cs.wisc.edu/~brecht/papers/2010-crpw_inverse_problems.pdf
 [jaggi2013]: http://jmlr.csail.mit.edu/proceedings/papers/v28/jaggi13-supp.pdf
 
-Reference Implementation
-========================
+<a name="reference-impl" href="#reference-impl">Reference Implementation</a>
+============================================================================
 
 ```python
 def frank_wolfe(minisolver, gradient, alpha, x0, epsilon=1e-2):

@@ -14,8 +14,8 @@ have achieved the popularity of their namesake.
 idea. In this post, I will explain what the LDA model says, what it does _not_
 say, and how we as researchers should look at it.
 
-The Model
-=========
+<a name="model" href="#model">The Model</a>
+===========================================
 
   Let's begin by appreciating Latent Dirichlet Allocation in its most natural
 form -- the graphical model.  I hope you like Greek letters...
@@ -107,8 +107,8 @@ samples from the [Multinomial distribution][multinomial]. Other than that, you
 now understand Latent Dirichlet Allocation, the core of nearly every Topic
 Model in existence.
 
-Appendix
-========
+<a name="appendix" href="#appendix">Appendix</a>
+================================================
 
 [lda]: http://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf
 [multinomial]: http://en.wikipedia.org/wiki/Multinomial_distribution

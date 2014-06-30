@@ -20,8 +20,8 @@ $$
 true label is for sample $i$ is $y_i$ and $\Omega(w)$ is a regularization
 function.
 
-Sparsifying Regularizers
-========================
+<a name="sparsifying-regularizers" href="#sparsifying-regularizers">Sparsifying Regularizers</a>
+================================================================================================
 
   There are many choices for $\Omega(w)$, but the ones I'm going to talk about
 today are so called "sparsifying regularizers" such as $||w||_1$. These norms
@@ -30,8 +30,8 @@ $w^{*}$ with many zeros. This is in stark contrast to other regularizers such
 as $\frac{1}{2}||w||_2^2$ which leads to lots of small but nonzero entries in
 $w^{*}$.
 
-Why Sparse Solutions?
-=====================
+<a name="why-sparse-solutions" href="#why-sparse-solutions">Why Sparse Solutions?</a>
+=====================================================================================
 
   **Feature Selection** One of the key reasons people turn to sparsifying
 regularizers is that they lead to automatic feature selection. Quite often,
@@ -49,8 +49,8 @@ otherwise. If the resulting learned weights $w^{*}$ has only a few non-zero
 entries, we might believe that those are the most indicative words in deciding
 sentiment.
 
-Non-smooth Regularizers and their Solutions
-===========================================
+<a name="nonsmooth-regularizers" href="#nonsmooth-regularizers">Non-smooth Regularizers and their Solutions</a>
+===============================================================================================================
 
   We now come to the \$ 100 million question: why do regularizers like the 1-norm
 lead to sparse solutions? At some point someone probably told you "they're our
@@ -136,8 +136,9 @@ $$
 already established that $-\frac{1}{\lambda} \nabla f(0)$ is in $\partial
 ||0||$. In other words, $x^{*} = 0$ solves the original problem!
 
-Onto Coordinate-wise Sparsity
-=============================
+
+<a name="coordinate-sparsity" href="#coordinate-sparsity">Onto Coordinate-wise Sparsity</a>
+===========================================================================================
 
   We've just established that $||\frac{1}{\lambda} \nabla f(0)||_{*} \le 1$
 implies $x^{*} = 0$, but we don't want all of $x^{*}$ to be 0, we want *some
@@ -185,8 +186,8 @@ for all coordinates other than $i$, we can evaluate the derivative of
 $\frac{1}{\lambda} f$ with respect to $x_i$ and check if the absolute value
 of that is less than 1. If it is, then $x_i = 0$ is optimal!
 
-Conclusion
-==========
+<a name="conclusion" href="#conclusion">Conclusion</a>
+======================================================
 
   In the first section, we showed that in order to solve the problem
 $\min_{x} f(x) + \lambda \Omega(x)$, it is necessary that $-\frac{1}{\lambda}
@@ -209,8 +210,8 @@ x_{-i}^{*})| \le 1$ when $x_i = 0$, then $x_i^{*} = 0$ is an optimal choice. In
 other words, we established conditions upon which a coordinate will be 0. This
 is why the $L_1$ norm causes sparsity.
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   Everything written here was explained to me by the ever-knowledgable
 MetaOptimize king, [Alexandre Passos][atpassos].

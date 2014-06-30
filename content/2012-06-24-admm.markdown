@@ -29,23 +29,28 @@ $$
 
 Finally we apply the following algorithm
 
+<div class="pseudocode" markdown>
+
+**Input** Initial primal and dual iterates $x_{0}$, $z_{0}$, and $y_{0}$
+
 1. Optimize over the first primal variable,
 
-$$
-x_{t+1} = \text{argmin}_x L_{\rho}(x,z_t, y_t)
-$$
+    $$
+      x_{t+1} = \text{argmin}_x L_{\rho}(x,z_t, y_t)
+    $$
 
 2. Optimize over the second primal variable,
 
-$$
-z_{t+1} = \text{argmin}_x L_{\rho}(x_{t+1},z, y_t)
-$$
+    $$
+      z_{t+1} = \text{argmin}_x L_{\rho}(x_{t+1},z, y_t)
+    $$
 
 3. Take a gradient step for the dual variable
 
-$$
-y_{t+1} = y_t + \rho (A x_{t+1} + B z_{t+1} - c)
-$$
+    $$
+      y_{t+1} = y_t + \rho (A x_{t+1} + B z_{t+1} - c)
+    $$
+</div>
 
 Notice the choice of step size for updating $y_t$ and the addition of a quadratic term to the Lagrangian; these are the critical addition of ADMM.
 
@@ -72,40 +77,46 @@ L_{\rho}(x,z,y) = \sum_{i} \left(
   \right)
 $$
 
+<div class="pseudocode" markdown>
+
+**Input** Initial primal and dual iterates $x_{0}$, and $y_{0}$
+
 1. For each machine $i$ in parallel, optimize the local variable $x_i$
 
-$$
-\begin{align}
-  x_{t+1, i} & = \text{argmin}_x f_i(x) 
-    + y_{t,i}^T (x - z_t) 
-    + \frac{\rho}{2} (x-z)^T (x-z) \\
-\end{align}
-$$
+    $$
+    \begin{align}
+      x_{t+1, i} & = \text{argmin}_x f_i(x) 
+        + y_{t,i}^T (x - z_t) 
+        + \frac{\rho}{2} (x-z)^T (x-z) \\
+    \end{align}
+    $$
 
 2. Aggregate the resulting $x_{t,i+1}$ and optimize the global variable $z$,
 
-$$
-\begin{align}
-  z_{t+1} &= \text{argmin}_z y_{t,i}^T (x_{t+1, i} - z) 
-    + \frac{\rho}{2} (x_{t+1, i} - z)^T (x_{t+1, i} - z)  \\
-  &= \frac{1}{N} \sum_{i=1}^{N} \left( 
-    x_{t+1, i} + \frac{1}{\rho} y_{t, i}
-  \right)
-\end{align}
-$$
+    $$
+    \begin{align}
+      z_{t+1} &= \text{argmin}_z y_{t,i}^T (x_{t+1, i} - z) 
+        + \frac{\rho}{2} (x_{t+1, i} - z)^T (x_{t+1, i} - z)  \\
+      &= \frac{1}{N} \sum_{i=1}^{N} \left( 
+        x_{t+1, i} + \frac{1}{\rho} y_{t, i}
+      \right)
+    \end{align}
+    $$
 
 3. Update the dual variables $y_{t,i}$,
 
-$$
-y_{t+1, i} = y_{t, i} + \rho ( x_{t+1,i} - z_{t+1} )
-$$
+    $$
+      y_{t+1, i} = y_{t, i} + \rho ( x_{t+1,i} - z_{t+1} )
+    $$
+
+</div>
 
 This is already pretty cool, but there's even more. It ends up that ADMM works splendidly even when we add a regularization penalty to the primal problem, such as the $L_2$ or $L_1$ norm. You can find out all of these cool things and more in the Stephen Boyd's [paper](http://www.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf) and [lecture](http://videolectures.net/nipsworkshops2011_boyd_multipliers/).
 
 On a final note, the proofs on convergence for ADMM are currently not as complete as those for other methods like Stochastic Gradient Descent. While it is known that the dual variable $y_t$ will converge as long as $f$ and $g$ are convex and a solution exists, we can only prove convergence of the primal variables $x_t$ and $z_t$ if they are constrained to lie in a polyhedron at this point in time.
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
 - [Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers](http://www.stanford.edu/~boyd/papers/pdf/admm_distr_stats.pdf)
 - [A Proof of Convergence For the Alternating Direction Method of Multipliers Applied to Polyhedral-Constrained Functions](http://arxiv.org/pdf/1112.2295.pdf)

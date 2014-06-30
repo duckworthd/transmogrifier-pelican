@@ -8,16 +8,15 @@ Slug: gradient-descent
 algorithms. Imagine you're standing on the side of a mountain and want to reach
 the bottom. You'd probably do something like this,
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   1. Look around you and see which way points the most downwards
   2. Take a step in that direction, then repeat
 </div>
 
   Well that's Gradient Descent!
 
-
-How does it work?
-=================
+<a name="implementation" href="#implementation">How does it work?</a>
+=====================================================================
 
   So how do we frame Gradient Descent mathematically? As usual, we define our
 problem in terms of minimizing a function,
@@ -41,7 +40,7 @@ $$
 
 
   <!-- TODO Replace well with something more contextually meaningful -->
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input**: initial iterate $x^{(0)}$
 
   1. For $t = 0, 1, \ldots$
@@ -55,10 +54,8 @@ $$
 $\alpha^{(t)}$ can be selected by [Line Search](#line_search), a small constant, or
 simply $\frac{1}{t}$.
 
-<a id="example"></a>
-
-A Small Example
-===============
+<a name="example" href="#example">A Small Example</a>
+=====================================================
 
   Let's look at Gradient Descent in action. We'll use the objective function
 $f(x) = x^4$, meaning that $\nabla_x f(x) = 4 x^3$. For a step size, we'll
@@ -90,10 +87,8 @@ choose a constant step size $\alpha_t = 0.05$. Finally, we'll start at $x^{(0)}
   </span>
 </div>
 
-<a id="proof"></a>
-
-Why does it work?
-=================
+<a name="proof" href="#proof">Why does it work?</a>
+===================================================
 
   Gradient Descent works, but it isn't guaranteed to find the optimal solution
 to our problem (that is, $x^{*} = \arg\min_{x} f(x)$) without a few assumptions.
@@ -194,10 +189,8 @@ f(x^{*}) \le \epsilon$, we need $O(\frac{1}{\epsilon})$ iterations.  In other
 words, Gradient Descent has a "convergence rate" of $O(\frac{1}{T})$.
 
 
-<a id="usage"></a>
-
-When should I use it?
-=====================
+<a name="usage" href="#usage">When should I use it?</a>
+=======================================================
 
   Because it's so easy to implement, Gradient Descent should be the first thing
 to try if you need to implement an optimization from scratch. So long as you
@@ -215,8 +208,8 @@ Even when considering the same memory requirements, there is another
 gradient-based method with better convergence rates. 
 
 
-Extensions
-==========
+<a name="extensions" href="#extensions">Extensions</a>
+======================================================
 
   **Step Size** The proof above relies on a constant step size, but quicker
 convergence can be obtained when using [Line Search](#line_search), wherein
@@ -234,9 +227,8 @@ $f$ is "strongly convex" with constant $m$, which then implies that $||x -
 x^{*}||_2 \le \frac{2}{m}||\nabla f(x)||_2$ (see [Convex
 Optimization][cvx_book], page 460, equation 9.10).
 
-
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   **Proof of Convergence** The proof of convergence for Gradient Descent is
 adapted from slide 1-18 of of UCLA's [EE236C lecture on Gradient
@@ -255,8 +247,8 @@ on unconstrained optimization][line_search].
 [hessian]: http://en.wikipedia.org/wiki/Hessian_matrix
 [cvx_book]: http://www.stanford.edu/~boyd/cvxbook/
 
-Reference Implementation
-========================
+<a name="reference-impl" href="#reference-impl">Reference Implementation</a>
+============================================================================
 
   Here's a quick implementation of gradient descent,
 

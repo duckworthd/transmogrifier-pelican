@@ -11,14 +11,14 @@ identical. The only difference is on the assumptions placed on the objective
 function we wish to minimize, $f(x)$.  If you were to follow the Subgradient
 Descent algorithm to walk down a mountain, it would look something like this,
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   1. Look around you and see which way points the most downwards. If there are multiple directions that are equally downwards, just pick one.
   2. Take a step in that direction. Then repeat.
 </div>
 
 
-How does it work?
-=================
+<a name="implementation" href="#implementation">How does it work?</a>
+=====================================================================
 
   As before, we adopt the usual problem definition,
 
@@ -51,7 +51,7 @@ Descent is
   </figcaption>
 </figure>
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input**: initial iterate $x^{(0)}$
 
   1. For $t = 0, 1, \ldots$
@@ -66,8 +66,8 @@ $\frac{1}{t}$.
 
 <a id="example"></a>
 
-A Small Example
-===============
+<a name="example" href="#example">A Small Example</a>
+=====================================================
 
   Let's watch Subgradient Descent do its thing. We'll use $f(x) = |x|$ as our
 objective function, giving us $sign(x)$ as a valid way to compute subgradients.
@@ -91,10 +91,8 @@ We'll use the [Polyak Step Size](#polyak) and initialize with $x^{(0)} = 0.75$.
 </div>
 
 
-<a id="proof"></a>
-
-Why does it work?
-=================
+<a name="proof" href="#proof">Why does it work?</a>
+===================================================
 
   Now let's prove that Subgradient Descent can find $x^{*} = \arg\min_x f(x)$.
 We begin by making the following assumptions,
@@ -256,10 +254,9 @@ we need $O(\frac{1}{\epsilon^2})$ iterations. Compared to Gradient
 Descent's $O(\frac{1}{\epsilon})$ convergence rate, Subgradient Descent looks
 pretty bad!
 
-When should I use it?
-=====================
+<a name="usage" href="#usage">When should I use it?</a>
+=======================================================
 
-  <a id="usage"></a>
   As the implementation of Gradient Descent and Subgradient Descent are
 essentially the same, ease of use is always the first reason to use Subgradient
 Descent. Similarly, Subgradient Descent requires a minimal memory footprint,
@@ -273,8 +270,8 @@ your specific problem. Proximal Gradient methods, for example, are one such
 family of algorithms that allow you to exploit the properties of differentiable
 problems even if your problem isn't.
 
-Extensions
-==========
+<a name="extensions" href="#extensions">Extensions</a>
+======================================================
 
   **Step Size** As stated previously, a common choice of step size is
 $\alpha^{(t)} = \frac{1}{t}$, but that's far from your only choice. Indeed, any
@@ -309,8 +306,8 @@ because $\nabla f(x)$ isn't defined at some points and $g_x$ doesn't
 necessarily get small near $x \triangleq x^{*}$. Instead, a fixed number of
 iterations is typically used.
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   **Proof of Convergence** The proof of convergence for Subgradient Descent is
 taken nearly verbatim from Stephen Boyd's [lecture notes for
@@ -325,8 +322,8 @@ page 23 of Stephen Boyd's [lecture slides for EE364b][subgradient_slides].
 [subgradient_slides]: http://www.stanford.edu/class/ee364b/lectures/subgrad_method_slides.pdf
 
 
-Reference Implementation
-========================
+<a name="reference-impl" href="#reference-impl">Reference Implementation</a>
+============================================================================
 
 ```python
 def subgradient_descent(function, subgradient, x0, alpha, n_iterations=100):

@@ -16,7 +16,7 @@ that you are standing on the side of a mountain and want to reach the bottom.
 If you were to follow the Accelerated Gradient Method, you'd do something like
 this,
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   1. Look around you and see which way points the most dowards
   2. Take a step in that direction
   3. Take another step in that direction, even if it starts taking you uphill.
@@ -26,8 +26,8 @@ this,
   As we'll see, that last unintuitive bit is the key to Accelerated Gradient
 Descent's speed.
 
-How does it work?
-=================
+<a name="implementation" href="#implementation">How does it work?</a>
+=====================================================================
 
   We begin by assuming the we want to minimize an unconstrained function $f$,
 
@@ -39,7 +39,7 @@ $$
 can easily compute its gradient $\nabla f(x)$. Then the Accelerated Gradient
 Method is defined as,
 
-<div class="pseudocode">
+<div class="pseudocode" markdown>
   **Input**: initial iterate $y^{(0)}$
 
   1. For $t = 1, 2, \ldots$
@@ -48,8 +48,8 @@ Method is defined as,
     4. Let $y^{(t)} = x^{(t)} + \frac{t-1}{t+2} (x^{(t)} - x^{(t-1)})$
 </div>
 
-A Small Example
-===============
+<a name="example" href="#example">A Small Example</a>
+=====================================================
 
   We'll try out Accelerated Gradient on the [same example used to showcase
 Gradient Descent][gradient_descent_example]. We'll use the objective function
@@ -75,10 +75,8 @@ Gradient Descent.
 </div>
 
 
-<a id="proof"></a>
-
-Why does it work?
-=================
+<a name="proof" href="#proof">Why does it work?</a>
+===================================================
 
   The assumptions for the Accelerated Gradient Method are identical to Gradient
 Descent's. In particular, we assume,
@@ -278,13 +276,13 @@ $O(\frac{1}{\sqrt{\epsilon}})$. Woo!
 
 <a id="usage"></a>
 
-When should I use it?
-=====================
+<a name="usage" href="#usage">When should I use it?</a>
+=======================================================
 
   The Accelerated Gradient Method trumps Gradient Descent in every way theoretically, but the latter is still more widely used and preferred.  Why? The fact is that Accelerated Gradient is much more of a pain to implement. Whereas with Gradient Descent you can simply check if your new iterate's score is less than the previous one, Accelerated Gradient's score may increase before decreasing again. Accelerated Gradient is also extremely sensitive to step size -- if $\alpha^{(t)}$ isn't in $(0, \frac{1}{L}]$, *it will diverge*. Accelerated Gradient is a powerful but fickle tool. Use it when you can, but keep Gradient Descent handy if everything is going awry.
 
-Extensions
-==========
+<a name="extensions" href="#extensions">Extensions</a>
+======================================================
 
   **Step Size** As mentioned previously, Accelerated Gradient is very fickle
 with step size.  While Backtracking Line Search can and should be used when
@@ -308,8 +306,8 @@ there is no real way to be certain when $f(x^{(t)}) - f(x^{*}) < \epsilon$
 without some problem-specific knowledge. Instead, it is common to stop after a
 fixed number of iterations or when $||\nabla f(x^{(t)})||_2$ is small.
 
-References
-==========
+<a name="references" href="#references">References</a>
+======================================================
 
   **Proof of Convergence** The proof of convergence is thanks to Lieven
 Vandenberghe's [EE236c slides][proof] hosted by Zaiwen Wen.
@@ -319,8 +317,8 @@ Vandenberghe's [EE236c slides][proof] hosted by Zaiwen Wen.
 [subgradient_descent]: /blog/subgradient-descent.html
 [proof]: http://math.sjtu.edu.cn/faculty/zw2109/course/sp04-2-gradient.pdf
 
-Reference Implementation
-========================
+<a name="reference-impl" href="#reference-impl">Reference Implementation</a>
+============================================================================
 
 ```python
 def accelerated_gradient(gradient, y0, alpha, n_iterations=100):
