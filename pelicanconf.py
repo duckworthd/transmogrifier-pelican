@@ -30,6 +30,7 @@ SOCIAL = [
 
 STATIC_PATHS = [
   "assets",
+  "CNAME",
 ]
 
 # the URL format used for articles and pages
