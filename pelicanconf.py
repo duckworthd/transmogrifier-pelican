@@ -38,13 +38,11 @@ PAGE_URL    = PAGE_SAVE_AS    = '{slug}.html'
 
 DEFAULT_PAGINATION = False
 
+# for comments
+DISQUS_SITENAME = "duckworthd-blog"
+
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
-
-# for additional functionality...
-PLUGIN_PATH = 'plugins'
-PLUGINS = [
-]
 
 # for prettiness...
 THEME = "themes/svbtle"
