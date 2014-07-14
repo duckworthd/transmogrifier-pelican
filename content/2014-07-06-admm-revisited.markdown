@@ -30,13 +30,13 @@ Gradient Descent][prox-grad].
   Let's begin by introducing the optimization problem ADMM solves,
 
 $$
-\begin{align} \label{eqn:objective}
+\begin{align}
 \begin{split}
   \underset{x,z}{\text{minimize}} \qquad
     & f(x) + g(z) \\
   \text{s.t.}                     \qquad
     & Ax + Bz = c \\
-\end{split}
+\end{split} \label{eqn:objective}
 \end{align}
 $$
 
@@ -628,8 +628,8 @@ all $u \in F(w)$ and $u' \in F(w')$, $\langle u-u', w-w' \rangle \ge 0$.
   Forward-Backward Splitting is an algorithm for finding such a $w^{*}$, given
 a few assumptions. Namely,
 
-1. $F(w) = A(w) + B(w)$ for monotone operators $A$ and $B$
-2. $A(w)$ has exactly one value for each $w$ in the domain
+1. $F(w) = \Psi(w) + \Theta(w)$ for monotone operators $\Psi$ and $\Theta$
+2. $\Psi(w)$ has exactly one value for each $w$ in the domain
 
   Given this, FoBoS will converge to a $w^{*}$ such that $0 \in F(w^{*})$. The
 algorithm itself is,
@@ -638,28 +638,28 @@ algorithm itself is,
   **Input** Step sizes $\{ \rho_t \}_{t=1}^{\infty}$, initial iterate $w^{(0)}$
 
   1. For $t = 0, 1, \ldots$
-    2. Let $w^{(t+1/2)} = w^{(t)} - \rho_t A(w^{(t)})$
-    3. Let $w^{(t+1)}$ be such that $w^{(t+1)} + \rho_t B(w^{(t+1)}) = w^{(t+1/2)}$
+    2. Let $w^{(t+1/2)} = w^{(t)} - \rho_t \Psi(w^{(t)})$
+    3. Let $w^{(t+1)}$ be such that $w^{(t+1)} + \rho_t \Theta(w^{(t+1)}) = w^{(t+1/2)}$
 </div>
 
   An equivalent, more concise way to describe FoBoS is with
-$w^{(t+1)} = (I + \rho_t B)^{-1} (I - \rho_t A) (w^{(t)})$. We'll now show that
-for appropriate choice of $F$, $A$, and $B$, Proximal Gradient Descent is
-merely FoBoS in disguise.
+$w^{(t+1)} = (I + \rho_t \Theta)^{-1} (I - \rho_t \Psi) (w^{(t)})$. We'll now
+show that for appropriate choice of $F$, $\Psi$, and $\Theta$, Proximal
+Gradient Descent is merely FoBoS in disguise.
 
 [**Prox. Grad. Desc. to FoBoS**][fobos-slides] Suppose we want to minimize
 $f(x) + g(x)$. If the problem is unconstrained, this is equivalent to finding
 $0 \in F(x) = \nabla f(x) + \partial_x g(x)$. Let's now define,
 
 $$
-\begin{align*}
-  A(x) &= \nabla g(x) & B(x) &= \partial_x f(x)
-\end{align*}
+\begin{align}
+  \Psi(x) &= \nabla f(x) & \Theta(x) &= \partial_x g(x) \label{eqn:fobos-def}
+\end{align}
 $$
 
-  Clearly, $(I - \rho_{t} A)(x) = x - \rho_{t} \nabla f(x)$ matches the first
+  Clearly, $(I - \rho_{t} \Psi)(x) = x - \rho_{t} \nabla f(x)$ matches the first
 part of FoBoS, but we also need to show that
-$\text{prox}_{\rho_t g}(x) = (I + \rho_{t} B)^{-1}(x)$,
+$\text{prox}_{\rho_t g}(x) = (I + \rho_{t} \Theta)^{-1}(x)$,
 
 $$
 \begin{align*}
@@ -669,13 +669,13 @@ $$
   0
   & \in \partial_x g(y) + \frac{1}{\rho} (y-x)          \\
   x
-  & \in (I + \rho B)(y)
+  & \in (I + \rho \Theta)(y)
 \end{align*}
 $$
 
-  We now have that for the above choices of $A$ and $B$, the proximal gradient
-descent algorithm can be reframed as identical to FoBoS:
-$x^{(t+1)} = (I + \rho_t B)^{-1} (I - \rho_t A) (x^{(t)})$.
+  We now have that for the above choices of $\Psi$ and $\Theta$, the proximal
+gradient descent algorithm can be reframed as identical to FoBoS:
+$x^{(t+1)} = (I + \rho_t \Theta)^{-1} (I - \rho_t \Psi) (x^{(t)})$.
 
 **AMA to FoBoS** We'll now show that AMA as applied to the ADMM objective is
 simply an instance of FoBoS. We'll make use of the following operators,
@@ -686,10 +686,6 @@ $$
   \Theta(y) &= B \partial g^{*}(B^T y) - c
 \end{align*}
 $$
-
-  It is worth noting at this point that the dual for $\ref{objective}$ is
-$\max_{y} - f^{*}(A^T y) - g^{*}(B^T y) + \langle y, c \rangle$. This means
-that if $0 \in \Psy(y^{*}) + \Theta(y^{*})$, then $y^{*}$ solves the dual.
 
   First, recall the subgradient optimality condition as applied to Step B of
 ADMM (same as AMA). In particular, for $z^{(t+1)}$ to be the argmin of
@@ -757,7 +753,7 @@ $$
 $$
 
   Using $y = \nabla f(x) \Rightarrow x = \nabla f^{*}(y)$ for strongly convex
-$f$ and Multiplying both sides by $A$,
+$f$ and multiplying both sides by $A$,
 
 $$
 \begin{align}
@@ -774,8 +770,21 @@ $$
 \end{align*}
 $$
 
-  In other words, AMA is simply FoBoS applied to the dual formulation of the
-problem.
+  In other words, AMA is simply an instance of FoBoS.
+
+  Finally, let's relate this reduction from AMA to FoBoS to Proximal Gradient
+Descent's reduction. It is worth noting at this point that the dual objective to
+$\ref{eqn:objective}$ is
+
+$$
+\min_{y} f^{*}(A^T y) + g^{*}(B^T y) - \langle y, c \rangle
+$$
+
+  It is easy to see from the dual problem formulation that $\Psi(y) = \nabla_y
+f^{*}(A^T y)$ and that $\Theta(y) = \partial (g^{*}(B^T y) - \langle y,
+c \rangle)$, just as prescribed in the preceding section on Proximal Gradient
+Descent $\ref{eqn:fobos-def}$. Thus we conclude that AMA is identical to
+Proximal Gradient Ascent on the dual.
 
 
 <a name="extensions" href="#extensions">Extensions</a>
