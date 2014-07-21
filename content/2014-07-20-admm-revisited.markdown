@@ -680,12 +680,14 @@ import sys
 
 
 if len(sys.argv) != 2:
-  sys.stderr.write("Usage: %s OUTPUT\n" % (sys.argv[1],))
+  sys.stderr.write("Usage: %s OUTPUT\n" % (sys.argv[0],))
   sys.exit(1)
+else:
+  output = sys.argv[1]
 
 prob, state = quadratic1()
 admm        = ADMM(rho=0.1)
-iterates    = list(it.islice(admm.solve(prob, state), 0, 100))
+iterates    = list(it.islice(admm.solve(prob, state), 0, 50))
 
 pl.figure()
 _   = np.linspace(-2, 5)
@@ -697,6 +699,7 @@ zs2 = [prob.primal(State(x=v,z=v,y=0)) for v in zs]
 def animate(i):
   print 'iteration:', i
   pl.cla()
+  pl.title("Iteration #%d" % i)
   pl.plot   (_, [prob.f(v) + prob.g(v) for v in _], 'k-' , label='f(x)+g(z)')
   pl.plot   (_, [prob.f(v)             for v in _], 'g--', label='f(x)'     )
   pl.plot   (_, [            prob.g(v) for v in _], 'b--', label=     'g(z)')
