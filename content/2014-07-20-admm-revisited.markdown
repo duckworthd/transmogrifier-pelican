@@ -1,5 +1,5 @@
 Title: ADMM revisited
-Date: 2013-07-06 00:00
+Date: 2014-07-20 00:00
 Category: optimization
 Tags: optimization, distributed, admm
 Slug: admm-revisited
