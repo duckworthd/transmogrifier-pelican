@@ -1,4 +1,5 @@
 *.py[oc]
 .DS_Store
+cache
 env
 output
