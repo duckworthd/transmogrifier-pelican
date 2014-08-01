@@ -140,6 +140,22 @@ direction $g^{(t)}$. As such, each iteration takes approximately $O(n)$ time.
     </tr>
     <tr>
       <!-- Algorithm          -->
+      <td>Dual Averaging</td>
+      <!-- Problem            -->
+      <td>$\displaystyle  \min_{x \in \mathcal{C}} f(x)$</td>
+      <!-- Convex             -->
+      <td>$O(1 / \epsilon^{2})$[^nesterov-2007]</td>
+      <!-- Strongly Convex    -->
+      <td>...</td>
+      <!-- Per-Iteration Cost -->
+      <td>$O(n)$</td>
+      <!-- Notes              -->
+      <td>
+        Cannot be improved upon without further assumptions.
+      </td>
+    </tr>
+    <tr>
+      <!-- Algorithm          -->
       <td>Gradient Descent</td>
       <!-- Problem            -->
       <td>$\displaystyle \min_{x \in \mathbb{R}^n} f(x)$</td>
@@ -215,11 +231,12 @@ direction $g^{(t)}$. As such, each iteration takes approximately $O(n)$ time.
       <!-- Strongly Convex    -->
       <td>$O(1/\sqrt{\epsilon})$[^garber-2014]</td>
       <!-- Per-Iteration Cost -->
-      <td>...</td>
+      <td>$O(n)$</td>
       <!-- Notes              -->
       <td>
-        Applicable when $\mathcal{C}$ is bounded. Most useful when
-        $\mathcal{C}$ is a polytope in a very high dimensional space with
+        Applicable when $\mathcal{C}$ is bounded and $h_{g}(x) = \arg\min_{x \in
+        \mathcal{C}} \langle g, x \rangle$ is easily computable. Most useful
+        when $\mathcal{C}$ is a polytope in a very high dimensional space with
         sparse extrema.
       </td>
     </tr>
@@ -416,6 +433,22 @@ rate of convergence).
     </tr>
     <tr>
       <!-- Algorithm          -->
+      <td>Stochastic Variance Reduced Gradient (SVRG)</td>
+      <!-- Problem            -->
+      <td>$\displaystyle \min_{x \in \mathbb{R}^n} \sum_{i} f_{i}(x) + \lambda g(x)$</td>
+      <!-- Convex             -->
+      <td>$O(1 / \epsilon)$[^johnson-2013]</td>
+      <!-- Strongly Convex    -->
+      <td>$O(\log (1/\epsilon))$[^johnson-2013]</td>
+      <!-- Per-Iteration Cost -->
+      <td>$O(n)$</td>
+      <!-- Notes              -->
+      <td>
+        Applicable when $f_{i}(x)$ is differentiable.
+      </td>
+    </tr>
+    <tr>
+      <!-- Algorithm          -->
       <td>MISO</td>
       <!-- Problem            -->
       <td>$\displaystyle \min_{x \in \mathbb{R}^n} \sum_{i} f_{i}(x) + \lambda g(x)$</td>
@@ -437,9 +470,10 @@ rate of convergence).
 Other Methods
 =============
 
-  The following methods are meta-algorithms, typically used in distributed
-settings. Unlike preceding methods, they require solutions to optimization as
-steps within each iteration.
+  The following methods do not fit well into any of the preceding categories.
+Included are meta-algorithms like ADMM, which are good for distributing
+computation across machines, and methods whose per-iteration complexity depends
+on iteration count $t$.
 
 <table markdown class="table table-bordered table-centered">
   <colgroup>
@@ -491,6 +525,40 @@ steps within each iteration.
         Matrices $A$ and $B$ may also need to be full column rank[^deng-2012] .
       </td>
     </tr>
+    <tr>
+      <!-- Algorithm          -->
+      <td>Bundle Method</td>
+      <!-- Problem            -->
+      <td>$\displaystyle \min_{x \in \mathcal{C}} f(x)$</td>
+      <!-- Convex             -->
+      <td>$O(1/\epsilon)$[^smola-2007]</td>
+      <!-- Strongly Convex    -->
+      <td>$O(\log (1 / \epsilon))$[^smola-2007]</td>
+      <!-- Per-Iteration Cost -->
+      <td>$O(tn)$</td>
+      <!-- Notes              -->
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <!-- Algorithm          -->
+      <td>Cutting-Plane Methods</td>
+      <!-- Problem            -->
+      <td>$\displaystyle \min_{x \in \mathcal{C}} f(x)$</td>
+      <!-- Convex             -->
+      <td>$O(\log (1 / \epsilon))$[^ee236c-localization]</td>
+      <!-- Strongly Convex    -->
+      <td>$O(\log (1 / \epsilon))$[^ee236c-localization]</td>
+      <!-- Per-Iteration Cost -->
+      <td>At least $O(tn)$</td>
+      <!-- Notes              -->
+      <td>
+        Applicable when $\mathcal{C}$ is bounded. Each iteration requires
+        finding a near-central point in a convex set; this may be
+        computationally expensive.
+      </td>
+    </tr>
+
   </tbody>
 </table>
 
@@ -561,6 +629,18 @@ steps within each iteration.
 [^hong-2012]:
   [Hong and Luo, 2012][hong-2012], Section 2
 
+[^johnson-2013]:
+  [Johnson and Zhang, 2013][johnson-2013]
+
+[^smola-2007]:
+  [Smola and Zhang, 2007][smola-2007]
+
+[^ee236c-localization]:
+  [EE236c Slides on Cutting Planes][ee236c-localization]
+
+[^nesterov-2007]:
+  [Nesterov, 2007][nesterov-2007]
+
 <!-- References -->
 [blog-gd]: {filename}/2013-04-10-gradient-descent.markdown
 [blog-sd]: {filename}/2013-04-11-subgradient-descent.markdown
@@ -584,3 +664,7 @@ steps within each iteration.
 [schmidt-2013]: http://arxiv.org/abs/1309.2388
 [hong-2012]: http://arxiv.org/abs/1208.3922
 [deng-2012]: ftp://ftp.math.ucla.edu/pub/camreport/cam12-52.pdf
+[johnson-2013]: http://papers.nips.cc/paper/4937-accelerating-stochastic-gradient-descent-using-predictive-variance-reduction.pdf
+[smola-2007]: http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2007_470.pdf
+[ee236c-localization]: http://www.seas.ucla.edu/~vandenbe/236C/lectures/localization.pdf
+[nesterov-2007]: http://ium.mccme.ru/postscript/s12/GS-Nesterov%20Primal-dual.pdf
