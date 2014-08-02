@@ -545,7 +545,7 @@ on iteration count $t$.
     </tr>
     <tr>
       <!-- Algorithm          -->
-      <td>Cutting-Plane Methods</td>
+      <td>Center of Gravity Algorithm</td>
       <!-- Problem            -->
       <td>$\displaystyle \min_{x \in \mathcal{C}} f(x)$</td>
       <!-- Convex             -->
