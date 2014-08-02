@@ -129,7 +129,7 @@ direction $g^{(t)}$. As such, each iteration takes approximately $O(n)$ time.
       <!-- Convex             -->
       <td>$O(1 / \epsilon^{2} )$[^ee381-md]</td>
       <!-- Strongly Convex    -->
-      <td>...</td>
+      <td>$O(1 / \epsilon )$[^nedich-2013]</td>
       <!-- Per-Iteration Cost -->
       <td>$O(n)$</td>
       <!-- Notes              -->
@@ -185,6 +185,7 @@ direction $g^{(t)}$. As such, each iteration takes approximately $O(n)$ time.
       <td>
         Applicable when $f(x)$ is differentiable.
         Cannot be improved upon without further assumptions.
+        Has better constants than Gradient Descent for "Strongly Convex" case.
       </td>
     </tr>
     <tr>
@@ -219,6 +220,8 @@ direction $g^{(t)}$. As such, each iteration takes approximately $O(n)$ time.
       <td>
         Applicable when $f(x)$ is differentiable and
         $\text{prox}_{\tau_t g}(x)$ is easily computable.
+        Has better constants than Proximal Gradient Descent for "Strongly
+        Convex" case.
       </td>
     </tr>
     <tr>
@@ -641,6 +644,9 @@ on iteration count $t$.
 [^nesterov-2007]:
   [Nesterov, 2007][nesterov-2007]
 
+[^nedich-2013]:
+  [Nedich and Lee, 2013][nedich-2013]
+
 <!-- References -->
 [blog-gd]: {filename}/2013-04-10-gradient-descent.markdown
 [blog-sd]: {filename}/2013-04-11-subgradient-descent.markdown
@@ -668,3 +674,4 @@ on iteration count $t$.
 [smola-2007]: http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2007_470.pdf
 [ee236c-localization]: http://www.seas.ucla.edu/~vandenbe/236C/lectures/localization.pdf
 [nesterov-2007]: http://ium.mccme.ru/postscript/s12/GS-Nesterov%20Primal-dual.pdf
+[nedich-2013]: http://arxiv.org/abs/1307.1879
