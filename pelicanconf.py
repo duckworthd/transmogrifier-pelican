@@ -37,7 +37,8 @@ STATIC_PATHS = [
 ARTICLE_URL = ARTICLE_SAVE_AS = 'blog/{slug}.html'
 PAGE_URL    = PAGE_SAVE_AS    = '{slug}.html'
 
-DEFAULT_PAGINATION = False
+# 5 articles per page
+DEFAULT_PAGINATION = 5
 
 # for comments
 DISQUS_SITENAME = "duckworthd-blog"
