@@ -1,11 +1,11 @@
+<!--
 Title: Recent Advances in Stochastic Methods
 Date: 3000-01-01 00:00
 Category: optimization
 Tags: optimization, stochastic
 Slug: recent-advances-in-stochastic-methods
+-->
 
-
-<!--
 
 Outline
 =======
