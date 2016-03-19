@@ -2,10 +2,10 @@
 <html lang="{{ DEFAULT_LANG }}">
 <head>
   <!-- stylesheets -->
-	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
-	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
-	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/assets/lightbox/css/lightbox.css">
-	<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/assets/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+	<link rel="stylesheet" type="text/css" href="/theme/lightbox/css/lightbox.css">
+	<link rel="stylesheet" type="text/css" href="/theme/font-awesome-4.3.0/css/font-awesome.min.css">
 
   <!-- fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata' rel='stylesheet' type='text/css'>
@@ -31,12 +31,12 @@
 <body>
 	<section id="sidebar">
 		<figure id="user_logo">
-      <a href="{{ SITEURL }}"><div class="logo">&nbsp;</div></a>
+      <a href=""><div class="logo">&nbsp;</div></a>
 		</figure>
 
 		<div class="user_meta">
       <h1 id="user">
-        <a  href="{{ SITEURL }}/"
+        <a  href="/"
             class="sitename">
           {{ SITENAME }}
         </a>
@@ -55,7 +55,7 @@
 				{% endfor %}
 				{% if DISPLAY_PAGES_ON_MENU %}
 					{% for p in PAGES %}
-						<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+						<li{% if p == page %} class="active"{% endif %}><a href="/{{ p.url }}">{{ p.title }}</a></li>
             <hr></hr>
 					{% endfor %}
 				{% endif %}
@@ -89,17 +89,17 @@
   </script>
   <script
     type= "text/javascript"
-    src="{{ SITEURL }}/assets/js/MathJaxLocal.js"
+    src="/assets/js/MathJaxLocal.js"
     >
   </script>
   <script
       type="text/javascript"
-      src="{{ SITEURL }}/assets/lightbox/js/jquery-1.11.0.min.js"
+      src="/theme/lightbox/js/jquery-1.11.0.min.js"
       >
   </script>
   <script
       type="text/javascript"
-      src="{{ SITEURL }}/assets/lightbox/js/lightbox.min.js"
+      src="/theme/lightbox/js/lightbox.min.js"
       >
   </script>
 </body>

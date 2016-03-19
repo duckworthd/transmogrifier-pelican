@@ -7,12 +7,12 @@
     <div id="article_meta">
       {% if not article.category == 'posts' %}
         Category:
-          <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+          <a href="/{{ article.category.url }}">{{ article.category }}</a>
       {% endif %}
       {% if article.tags %}
         <br />Tags:
         {% for tag in article.tags %}
-          <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+          <a href="/{{ tag.url }}">{{ tag }}</a>
           {% if not loop.last %}, {% endif %}
         {% endfor %}
       {% endif %}
@@ -20,7 +20,7 @@
   </article>
 
   <footer>
-    <a href="{{ SITEURL }}/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
+    <a href="/" class="button_accent">&larr;&nbsp;&nbsp;&nbsp;Back to blog</a>
   </footer>
 
   {% if DISQUS_SITENAME %}

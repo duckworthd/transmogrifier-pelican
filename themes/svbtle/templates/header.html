@@ -2,7 +2,7 @@
 	<header>
     {% if article.title %}
       <h1 class="title">
-			  <a  href="{{ SITEURL }}/{{ article.url }}"
+			  <a  href="/{{ article.url }}"
             rel="bookmark"
 			  	  title="Permalink to {{ article.title|striptags }}">
           {{ article.title }}
@@ -24,7 +24,7 @@
 	<header>
     {% if page.title %}
       <h1 class="title">
-			  <a  href="{{ SITEURL }}/{{ page.url }}"
+			  <a  href="/{{ page.url }}"
             rel="bookmark"
 			  	  title="Permalink to {{ page.title|striptags }}">
           {{ page.title }}
