@@ -50,8 +50,16 @@ DISQUS_SITENAME = "duckworthd-blog"
 THEME = "themes/svbtle"
 
 # for code highlighting, math
-MD_EXTENSIONS = [
-  'codehilite(css_class=highlight)',
-  'extra',
-  'mathjax',
-]
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+        'mdx_mathjax': {},
+    },
+    'output_format': 'html5',
+}
+
+# Plugin to safely render MathJAX.
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['render_math']
