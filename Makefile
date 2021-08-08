@@ -47,7 +47,7 @@ publish: dependencies
 dependencies:
 	pip install 'pip>=1.5.5' wheel virtualenv
 	test -e $(ENV) || virtualenv $(ENV)
-	. $(ENV)/bin/activate && pip install -r $(BASEDIR)/requirements.txt --use-wheel
+	. $(ENV)/bin/activate && pip install -r $(BASEDIR)/requirements.txt
 
 serve:
 ifdef PORT
