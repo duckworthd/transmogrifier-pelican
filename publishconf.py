@@ -10,15 +10,8 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = ''
+SITEURL = 'http://stronglyconvex.com'
 RELATIVE_URLS = False
-
-# Temporarily disable feeds.
-#
-# TODO(duckworthd): After migrating to stronglyconvex.com, set this again.
-FEED_DOMAIN = None
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
 
 # Following items are often useful when publishing
 
