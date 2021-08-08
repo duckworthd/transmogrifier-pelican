@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR   = u'Daniel Duckworth'
 SITENAME = u'Strongly Convex'
-SITEURL  = ''
+SITEURL  = 'http://localhost:8000'
 
 TIMEZONE = 'US/Pacific'
 
@@ -18,8 +18,7 @@ CATEGORY_FEED_ATOM    = None
 TRANSLATION_FEED_ATOM = None
 
 LINKS = [
-  ('Words', "/"),
-  ('Code' , "/code.html" ),
+  ('Blog', "/"),
   ('About', "/about.html"),
 ]
 
@@ -40,26 +39,19 @@ PAGE_URL    = PAGE_SAVE_AS    = '{slug}.html'
 # 5 articles per page
 DEFAULT_PAGINATION = 5
 
-# for comments
-DISQUS_SITENAME = "duckworthd-blog"
-
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 # for prettiness...
 THEME = "themes/svbtle"
 
-# for code highlighting, math
+# for code highlighting
 MARKDOWN = {
     'extension_configs': {
         'markdown.extensions.codehilite': {'css_class': 'highlight'},
         'markdown.extensions.extra': {},
         'markdown.extensions.meta': {},
-        'mdx_mathjax': {},
+        # 'mdx_mathjax': {},
     },
     'output_format': 'html5',
 }
-
-# Plugin to safely render MathJAX.
-PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['render_math']
