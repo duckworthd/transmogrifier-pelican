@@ -4,7 +4,6 @@ Category: optimization
 Tags: optimization, first-order, proximal
 Slug: proximal-gradient-descent
 
-  $ \def\prox{\text{prox}} $
   In a [previous post][subgradient_descent_usage], I mentioned that one cannot
 hope to asymptotically outperform the $O(\frac{1}{\epsilon^2})$ convergence
 rate of Subgradient Descent when dealing with a non-differentiable objective
@@ -14,6 +13,8 @@ In this article, I'll describe Proximal Gradient Descent, an algorithm that
 exploits problem structure to obtain a rate of $O(\frac{1}{\epsilon})$. In
 particular, Proximal Gradient is useful if the following 2 assumptions hold.
 First, the objective function must be of the form,
+
+$ \def\prox{\text{prox}} $
 
 $$
   \min_{x} \, g(x) + h(x)
