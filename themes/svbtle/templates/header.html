@@ -1,10 +1,8 @@
 {% if article %}
-	<header>
+  <header>
     {% if article.title %}
       <h1 class="title">
-			  <a  href="/{{ article.url }}"
-            rel="bookmark"
-			  	  title="Permalink to {{ article.title|striptags }}">
+        <a  href="/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
           {{ article.title }}
         </a>
       </h1>
@@ -17,32 +15,30 @@
       {% endif %}
     #}
     {% if article.locale_date %}
-		  <abbr class="published">{{ article.locale_date }}</abbr>
+      <abbr class="published">{{ article.locale_date }}</abbr>
     {% endif %}
-	</header>
+  </header>
 {% elif page %}
-	<header>
+  <header>
     {% if page.title %}
       <h1 class="title">
-			  <a  href="/{{ page.url }}"
-            rel="bookmark"
-			  	  title="Permalink to {{ page.title|striptags }}">
+        <a href="/{{ page.url }}" rel="bookmark" title="Permalink to {{ page.title|striptags }}">
           {{ page.title }}
         </a>
       </h1>
     {% endif %}
-	</header>
+  </header>
 {% else %}
-	<header>
-		<h3>
-			<script type="text/javascript">
-				var currentDate = new Date();
-				var day = currentDate.getDate();
-				var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-				var month = monthNames[currentDate.getMonth()].toUpperCase();
-				var year = currentDate.getFullYear();
-				document.write(month + " " + day + ", " + year);
-			</script>
-		</h3>
-	</header>
+  <header>
+    <h3>
+      <script type="text/javascript">
+        var currentDate = new Date();
+        var day = currentDate.getDate();
+        var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+        var month = monthNames[currentDate.getMonth()].toUpperCase();
+        var year = currentDate.getFullYear();
+        document.write(month + " " + day + ", " + year);
+      </script>
+    </h3>
+  </header>
 {% endif %}

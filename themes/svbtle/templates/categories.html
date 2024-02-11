@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-	{% include "header.html" %}
+  {% include "header.html" %}
 
-	<dl id="tag_list">
-		<ul>
-		{% for category, articles in categories %}
-			<li><a href="/{{ category.url }}">{{ category }}</a></li>
-		{% endfor %}
-		</ul>
-	</dl>
+  <dl id="tag_list">
+    <ul>
+    {% for category, articles in categories %}
+      <li><a href="/{{ category.url }}">{{ category }}</a></li>
+    {% endfor %}
+    </ul>
+  </dl>
 {% endblock %}

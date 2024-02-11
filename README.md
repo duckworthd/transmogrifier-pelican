@@ -3,16 +3,14 @@
 Pelican-based version of [http://duckworthd.github.com][home].
 
 Makes use of a variation of [svbtle's theme][svbtle] for its theme and
-[python-markdown-mathjax][pmm] + [MathJax][mj] for rendering equations.
-
-Portrait photo by [Happy Holly Days][hhh].
+[pelican-render-math][rm] + [MathJax][mj] for rendering equations.
 
 ## Usage
 
 Setup
 
 ```shell
-$ python3 -m virtualenv env
+$ python3 -m venv env
 $ source env/bin/activate
 $ python3 -m pip install -r requirements.txt
 ```
@@ -20,14 +18,13 @@ $ python3 -m pip install -r requirements.txt
 To serve locally on http://localhost:8000,
 
 ```shell
-$ make regenerate
-$ make serve
+$ invoke livereload
 ```
 
 To publish,
 
 ```shell
-$ make publish
+$ invoke publish
 $ cp -r ./output/* ../duckworthd.github.io/
 ```
 
@@ -42,6 +39,6 @@ $ lessc style.less style.css
 
 [home]: https://github.com/mayoff/python-markdown-mathjax
 [svbtle]: https://github.com/wting/pelican-svbtle
-[pmm]: https://github.com/mayoff/python-markdown-mathjax
+[rm]: https://github.com/pelican-plugins/render-math
 [mj]: http://www.mathjax.org/
 [hhh]: https://www.facebook.com/happyhollydayphotography

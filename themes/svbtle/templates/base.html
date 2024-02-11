@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- stylesheets -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/theme/css/style.css"> -->
+  {% assets filters="less", output="css/style.css", "css/style.less" %}
+    <link rel="stylesheet" type="text/css" href="{{SITEURL}}/{{ASSET_URL}}">
+  {% endassets %}
   <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="/theme/font-awesome-4.3.0/css/font-awesome.min.css">
 
@@ -35,10 +38,7 @@
 
       <div class="user_meta">
         <h1 id="user">
-          <a  href="/"
-              class="sitename">
-            {{ SITENAME }}
-          </a>
+          <a  href="/" class="sitename">{{ SITENAME }}</a>
         </h1>
         <h2>{{ TAGLINE }}</h2>
 
@@ -63,9 +63,7 @@
   <!-- scripts -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script
-    type= "text/javascript"
-    src="/theme/mathjax/MathJaxLocal.js"
+  <script type= "text/javascript" src="/theme/mathjax/MathJaxLocal.js"
     >
   </script>
 </body>

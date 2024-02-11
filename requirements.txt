@@ -1,3 +1,8 @@
+beautifulsoup4
+invoke
+livereload
 markdown
 pelican
 pelican-render-math
+pelican-webassets
+typogrify

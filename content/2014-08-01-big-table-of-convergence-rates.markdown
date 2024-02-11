@@ -23,7 +23,7 @@ supervised learning problems and other meta-algorithms useful for distributing
 computation across multiple nodes.
 
   Unless otherwise stated, all objectives are assumed to be Lipschitz
-continuous (though not necssarily differentiable) and the domain convex. The
+continuous (though not necessarily differentiable) and the domain convex. The
 variable being optimized is $x \in \mathbb{R}^n$.
 
 Zeroth Order Methods

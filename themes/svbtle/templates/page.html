@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }}{%endblock%}
 {% block content %}
-	{% include "header.html" %}
-	<article>
-		{{ page.content }}
-	</article>
+  {% include "header.html" %}
+  <article>
+    {{ page.content }}
+  </article>
 
-	<footer>
-		<a  href="/"
+  <footer>
+    <a  href="/"
         class="button_accent">
       &larr;&nbsp;&nbsp;&nbsp;Back to blog
     </a>
-	</footer>
+  </footer>
 {% endblock %}

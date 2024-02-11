@@ -1,21 +1,18 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- #
-from __future__ import unicode_literals
 
-AUTHOR   = u'Daniel Duckworth'
-SITENAME = u'Strongly Convex'
-SITEURL  = 'http://localhost:8000'
-
-TIMEZONE = 'US/Pacific'
-
-DEFAULT_LANG = u'en'
-
-DISPLAY_PAGES_ON_MENU = False
+AUTHOR       = 'Daniel Duckworth'
+SITENAME     = 'Strongly Convex'
+SITEURL      = ''
+PATH         = 'content'
+TIMEZONE     = 'Europe/Rome'
+DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM         = None
-CATEGORY_FEED_ATOM    = None
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
 
 LINKS = [
   ('Blog', "/"),
@@ -27,6 +24,7 @@ SOCIAL = [
   ('github' , 'http://github.com/duckworthd'),
 ]
 
+# These files and folders are copied as-is.
 STATIC_PATHS = [
   "assets",
   "CNAME",
@@ -37,7 +35,7 @@ ARTICLE_URL = ARTICLE_SAVE_AS = 'blog/{slug}.html'
 PAGE_URL    = PAGE_SAVE_AS    = '{slug}.html'
 
 # 5 articles per page
-DEFAULT_PAGINATION = 5
+DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
