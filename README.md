@@ -10,32 +10,27 @@ Makes use of a variation of [svbtle's theme][svbtle] for its theme and
 Setup
 
 ```shell
-$ python3 -m venv env
-$ source env/bin/activate
-$ python3 -m pip install -r requirements.txt
+python3 -m venv env
+source env/bin/activate
+python3 -m pip install -r requirements.txt
+apt install npm
+npm install less -g
 ```
 
 To serve locally on http://localhost:8000,
 
 ```shell
-$ invoke livereload
+invoke livereload
 ```
 
 To publish,
 
 ```shell
-$ invoke publish
-$ cp -r ./output/* ../duckworthd.github.io/
+invoke publish
+cp -r ./output/* ../duckworthd.github.io/
 ```
 
 To update the theme's CSS,
-
-```shell
-$ brew install npm
-$ npm install less -g
-$ cd themes/svbtle/static/css
-$ lessc style.less style.css
-```
 
 [home]: https://github.com/mayoff/python-markdown-mathjax
 [svbtle]: https://github.com/wting/pelican-svbtle
